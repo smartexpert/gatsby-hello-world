@@ -33,9 +33,11 @@ const BlogPage = () => {
             <ol className={blogStyles.posts}>
                 {data.allMarkdownRemark.edges.map((post,id) => {
                     return (
-                    <li key={`post-${id}`}>
-                        <h2><Link to={`/blog/${post.node.fields.slug}`}>{post.node.frontmatter.title}</Link></h2>
+                    <li key={`post-${id}`} className={blogStyles.post}>
+                      <Link to={`/blog/${post.node.fields.slug}`}>
+                        <h2>{post.node.frontmatter.title}</h2>
                         <p>{post.node.frontmatter.date}</p>
+                      </Link>
                     </li>
                     )
                 })}
