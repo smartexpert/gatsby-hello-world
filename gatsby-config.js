@@ -18,6 +18,24 @@ module.exports = {
         name: `src`,
         path: `${__dirname}/content/`,
       },
+    },
+    'gatsby-plugin-sharp',
+    {
+      resolve:'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-relative-images`,
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth:750,
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
     }
   ]
 }
